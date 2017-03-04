@@ -34,10 +34,10 @@ class RequestHandler:
         for tag in urls:
             link = tag.get('href', None)
             activation_link = link
-            break
-        else:
-            return
-        return activation_link
+            if activation_link:
+                return activation_link
+            else:
+                return
 
     @staticmethod
     def send_post_request(url, data, headers):
